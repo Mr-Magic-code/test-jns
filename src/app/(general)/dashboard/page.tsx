@@ -1287,7 +1287,7 @@ export default function DashboardPage() {
       {/* Sidebar */}
       <aside className={`fixed inset-y-0 left-0 z-50 w-64 bg-white text-gray-800 flex flex-col shadow-2xl lg:shadow-none border-r border-gray-200 shrink-0 transform transition-transform duration-300 ease-in-out lg:sticky lg:top-0 lg:h-screen lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="p-5 lg:p-6 text-2xl font-bold tracking-wider border-b border-gray-200 flex items-center justify-between">
-          <img src="/images/icons/jns-education-logo.svg" alt="Logo" className="w-auto h-8" />
+          <img src="/images/Icons/Jns-Education-Logo.svg" alt="Logo" className="w-auto h-8" />
           <button className="lg:hidden p-1.5 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-800 cursor-pointer" onClick={() => setIsSidebarOpen(false)}>
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
