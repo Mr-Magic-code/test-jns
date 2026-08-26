@@ -117,7 +117,7 @@ export default function GenHeader() {
 
           <div className="flex flex-col">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/icons/Jns-Education-Logo.svg" alt="JnS Education" className="h-12 w-auto" />
+            <img src="/images/Icons/Jns-Education-Logo.svg" alt="JnS Education" className="h-12 w-auto" />
           </div>
         </Link>
 

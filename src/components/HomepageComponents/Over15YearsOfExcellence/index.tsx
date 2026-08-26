@@ -38,7 +38,7 @@ export default function YearsOfExcellence() {
         <div className="my-8 flex justify-center">
           <div className="relative w-44 h-16">
             <img
-              src="/images/icons/jns-education-logo.svg"
+              src="/images/Icons/jns-education-logo.svg"
               alt="JnS Education Logo"
               loading="lazy"
               className="w-full h-full object-contain"
