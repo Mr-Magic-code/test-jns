@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:col-span-3 space-y-3">
           <Link href="/" className="inline-block">
             <Image
-              src="/images/icons/jns-education-logo.svg"
+              src="/images/icons/Jns-Education-Logo.svg"
               alt="JnS Education Logo"
               width={180}
               height={60}

@@ -114,7 +114,7 @@ export default function PakHeader() {
 
           <div className="flex flex-col">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/icons/jns-education-logo.svg" alt="JnS Education" className="h-12 w-auto" />
+            <img src="/images/icons/Jns-Education-Logo.svg" alt="JnS Education" className="h-12 w-auto" />
           </div>
         </Link>
 
