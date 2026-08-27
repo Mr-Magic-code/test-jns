@@ -4,9 +4,10 @@ import Link from 'next/link';
 import mysql from 'mysql2/promise';
 import type { Metadata } from "next";
 import PageHeader from '@/components/PageHeader';
+
 export const metadata: Metadata = {
-  title: "Blogs | JnS Education Pakistan",
-  description: "Stay updated with global education news, university admission guidance, and student visa updates.",
+  title: "Blogs | JnS Education Pakistan",
+  description: "Stay updated with global education news, university admission guidance, and student visa updates.",
 };
 
 const pool = mysql.createPool({
@@ -14,9 +15,12 @@ const pool = mysql.createPool({
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'jnsedu-db',
+  port: Number(process.env.DB_PORT) || 3306,
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  connectTimeout: 30000, // 30 seconds timeout to prevent Vercel errors
+  queueLimit: 0,
+  ssl: process.env.DB_HOST && process.env.DB_HOST.includes('aivencloud') ? { rejectUnauthorized: false } : undefined
 });
 
 async function getPakistanBlogs() {
@@ -25,7 +29,8 @@ async function getPakistanBlogs() {
       `SELECT blogs.*, blog_categories.name AS category_name 
        FROM blogs 
        LEFT JOIN blog_categories ON blogs.category_id = blog_categories.id 
-       WHERE blogs.region = 'pakistan' AND blogs.status = 'published' 
+       WHERE LOWER(blogs.region) = 'pakistan' 
+       AND LOWER(blogs.status) = 'published' 
        ORDER BY blogs.created_at DESC`
     );
     return rows as any[];
