@@ -226,7 +226,7 @@ export default function GenHeader() {
           {/* Mobile Sign Up CTA */}
           <div className="pt-3">
             <Link
-              href="/sign-up"
+              href="/dashboard"
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full text-center bg-primary hover:bg-primary-dark text-white font-semibold py-3 rounded-lg text-sm transition-colors"
             >

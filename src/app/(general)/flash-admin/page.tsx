@@ -95,12 +95,12 @@ export default function SuperAdminSignup() {
   };
 
   return (
-    <div className="flex justify-center bg-[#fbfbfb] font-sans p-[100px] min-h-screen">
+    <div className="flex justify-center bg-[#fbfbfb] font-sans p-[20px] min-h-20">
       <div className="w-full max-w-md">
         <div className="w-full max-w-[340px] mx-auto">
           
           {/* Heading */}
-          <h1 className="text-3xl mb-2 font-medium tracking-wide text-[#0071f6]">
+          <h1 className="text-3xl mb-2 font-medium tracking-wide text-primary">
             Super Admin
           </h1>
           <p className="text-gray-500 mb-8">Create your highly secure admin account</p>
@@ -187,7 +187,7 @@ export default function SuperAdminSignup() {
               <button 
                 type="submit" 
                 disabled={isLoading}
-                className="w-full px-8 py-2.5 bg-[#0071f6] text-white rounded hover:bg-[#005ecb] transition-colors text-sm font-medium shadow-sm disabled:opacity-60 disabled:cursor-not-allowed flex justify-center items-center gap-2"
+                className="w-full px-8 py-2.5 bg-primary text-white rounded hover:bg-[#005ecb] transition-colors text-sm font-medium shadow-sm disabled:opacity-60 disabled:cursor-not-allowed flex justify-center items-center gap-2"
               >
                 {isLoading ? (
                   <>

@@ -158,9 +158,9 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ text: '', type: '' });
 
-  // Pagination states for Submissions
+  // Pagination states for Submissions (Updated default per page to 100 for heavy datasets)
   const [currentPageSub, setCurrentPageSub] = useState(1);
-  const [itemsPerPageSub, setItemsPerPageSub] = useState(6);
+  const [itemsPerPageSub, setItemsPerPageSub] = useState(100);
   const [goToPageInputSub, setGoToPageInputSub] = useState('1');
   const [isPerPageOpenSub, setIsPerPageOpenSub] = useState(false);
   const perPageDropdownRefSub = useRef<HTMLDivElement>(null);
@@ -1135,7 +1135,8 @@ export default function DashboardPage() {
     { label: `Trashed (${countTrashed})`, value: 'Trashed' },
   ];
 
-  const perPageOptions = [6, 10, 20, 50, 100];
+  // Expanded perPageOptions to support up to 10,000 per page for high data capacity
+  const perPageOptions = [100, 500, 1000, 5000, 10000];
 
   const totalPagesSub = Math.ceil(filteredSubmissions.length / itemsPerPageSub) || 1;
   const currentSubmissions = filteredSubmissions.slice((currentPageSub - 1) * itemsPerPageSub, currentPageSub * itemsPerPageSub);
@@ -1198,7 +1199,7 @@ export default function DashboardPage() {
     });
   }, [eventsList, eventTableTab, eventSearchQuery]);
 
-  // Pagination calculations for Events (6 items per page default)
+  // Pagination calculations for Events
   const totalPagesEvents = Math.ceil(filteredEvents.length / itemsPerPageEvents) || 1;
   const currentEvents = filteredEvents.slice((currentPageEvents - 1) * itemsPerPageEvents, currentPageEvents * itemsPerPageEvents);
 
@@ -1814,7 +1815,7 @@ export default function DashboardPage() {
 
                       {isPerPageOpenPages && (
                         <div className="absolute left-0 bottom-full mb-2 w-32 bg-white rounded-2xl shadow-xl border border-gray-100 p-2 z-50 space-y-1">
-                          {perPageOptions.map((opt) => (
+                          {[6, 10, 20, 50, 100].map((opt) => (
                             <div
                               key={opt}
                               onClick={() => {
@@ -2164,7 +2165,7 @@ export default function DashboardPage() {
 
                       {isPerPageOpenEvents && (
                         <div className="absolute left-0 bottom-full mb-2 w-32 bg-white rounded-2xl shadow-xl border border-gray-100 p-2 z-50 space-y-1">
-                          {perPageOptions.map((opt) => (
+                          {[6, 10, 20, 50, 100].map((opt) => (
                             <div
                               key={opt}
                               onClick={() => {
@@ -2412,7 +2413,8 @@ export default function DashboardPage() {
           {activeTab === 'submissions' && (
             <div className="space-y-4 sm:space-y-5 lg:space-y-[20px]">
               
-              <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 bg-white p-4 sm:p-5 rounded-2xl border border-gray-200 shadow-sm">
+              {/* STICKY FILTER BAR (Sticks to top right under main header when scrolling) */}
+              <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-4 bg-white p-4 sm:p-5 rounded-2xl border border-gray-200 shadow-sm sticky top-[73px] sm:top-[120px] z-20">
                 <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 w-full xl:w-auto">
                   
                   <div className="relative w-full sm:w-auto" ref={formSelectorRef}>

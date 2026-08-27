@@ -151,7 +151,7 @@ export default function PakHeader() {
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center gap-4">
           <Link
-            href="/admin"
+            href="/dashboard"
             className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition-colors shadow-xs"
           >
             Sign Up
