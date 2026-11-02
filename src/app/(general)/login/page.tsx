@@ -33,7 +33,7 @@ export default function LoginPage() {
         throw new Error(data.message || 'Invalid credentials');
       }
 
-      window.location.href = '/protection/dashboard';
+      window.location.href = '/dashboard';
     } catch (err: unknown) {
       setErrorMessage((err as Error).message || 'Something went wrong. Please try again.');
     } finally {
