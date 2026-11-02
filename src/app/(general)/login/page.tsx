@@ -3,9 +3,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-const LEFT_SIDE_SVG_URL =
-  '/images/left_img_login.svg';
-
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -36,7 +33,7 @@ export default function LoginPage() {
         throw new Error(data.message || 'Invalid credentials');
       }
 
-      window.location.href = '/dashboard';
+      window.location.href = '/protection/dashboard';
     } catch (err: unknown) {
       setErrorMessage((err as Error).message || 'Something went wrong. Please try again.');
     } finally {
@@ -52,7 +49,7 @@ export default function LoginPage() {
       <div className="hidden md:flex w-full md:w-[54%] lg:w-[40%] bg-[#0071f6] items-center justify-center p-6 sm:p-10 lg:p-14">
         <div className="w-full max-w-[620px] flex items-center justify-center">
           <img
-            src={LEFT_SIDE_SVG_URL}
+            src='/images/left_img_login.svg'
             alt="Get Ready to manage leads and students Smarter, Better, Faster"
           />
         </div>
@@ -90,7 +87,7 @@ export default function LoginPage() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="mohsin.jameel@jns.com"
-                  className="w-full px-3 py-2 bg-white border border-gray-300 rounded text-gray-800 text-sm focus:outline-none focus:border-[#0071f6] transition"
+                  className="w-full px-3 py-2 bg-white border border-gray-300 rounded text-gray-800 text-sm focus:outline-none focus:border-[#e5775c] transition"
                 />
               </div>
 
